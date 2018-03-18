@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nastoika!</title>
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+
+    <style>
+    	body {
+    		margin: 0px;
+    	}
+
+    	.game {
+    		float: left;
+    		width: 1000px;
+    		padding: 50px 100px 100px 100px;
+    		background: #eeeeee;
+    	}
+
+    	.nastoika-image-box {
+    		float: left;
+            width: 600px;
+            height: 500px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url(assets/images/nastoika.jpg);
+    		
+    	}
+
+        .nastoika-labels {
+            display: inline-block;
+            width: 150px;
+            height: 75px;
+            margin: 10px;
+            margin-top: 170px;
+            border: 3px solid #73AD21;
+            color: white;
+            text-align: center;
+        }
+            
+    	.wins-losses {
+    		float: left;
+    		width: 160px;
+    		height: 200px;
+    		background: #a48fc8;
+    		color: #000;
+    		padding: 0 20px;
+    	}
+
+        .nastoika-amounts {
+            display: inline-block;
+            width: 150px;
+            height: 75px;
+            margin: 10px;
+            margin-top: 0px;
+            border: 3px solid #73AD21;
+            color: black;
+            text-align: center;
+        }
+
+    	.amounts {
+            float: left;
+            margin-top: 0px;
+        }
+
+    	.crystals {
+    		float: left;
+    		width: 860px;
+    		height: 200px;
+    		padding: 0;
+    		margin: 0;
+    	}
+
+        #rambutan {
+            width: 150px;
+            height: 75px;
+            background-color: rgba( 255, 255, 255, 0.2 );
+        }
+
+        #kiwi {
+            width: 150px;
+            height: 75px;
+            background-color: rgba( 255, 255, 255, 0.2 );
+        }
+
+        #plum {
+            width: 150px;
+            height: 75px;
+            background-color: rgba( 255, 255, 255, 0.2 );
+        }
+
+
+
+    	/*.score {
+    		float: left;
+    		width: 560px;
+    		height: 200px;
+    		background: #be081f;
+    		color: #000;
+    		padding: 0 20px;
+    	}*/
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="game">
+
+        <H1>Nastoika!</H1>
+
+        <div class="nastoika-image-box">
+            <ul>
+                <li class="nastoika-labels" id="rambutan"><h2>Rambutan</h2></li>
+                <li class="nastoika-labels" id="kiwi"><h2>Kiwi</h2></li>
+                <li class="nastoika-labels" id="plum"><h2>Plum</h2></li>
+            </ul>
+                
+        </div>
+
+        <!-- <div class="wins-losses">
+            <h2 id="win"></h2>
+            <h2 id="loss"></h2>
+        </div> -->
+
+        <!-- <div class="crystals" style="float: left; padding: 0; margin: 0;">
+            <img id="crystal1" class="crystal1" src="assets/img/mind.jpg" alt="crystal-1" height="200" width="200">
+            <img id="crystal2" class="crystal2" src="assets/img/purple.jpg" alt="crystal-2" height="200" width="200">
+            <img id="crystal3" class="crystal3" src="assets/img/red.jpg" alt="crystal-3" height="200" width="200">
+            <img id="crystal4" class="crystal4" src="assets/img/skull.jpg" alt="crystal-4" height="200" width="200">
+        </div> -->
+
+        <H2 style="float:left">Click a button to take a shot and see how much is left!</H2>
+
+        <div class="amounts">
+            <ul>
+                <li class="nastoika-amounts"><h2 id="rambutan-quantity"></h2></li>
+                <li class="nastoika-amounts"><h2 id="kiwi-quantity"></h2></li>
+                <li class="nastoika-amounts"><h2 id="plum-quantity"></h2></li>
+            </ul>
+                
+        </div>
+
+        <!-- <div class="score">
+            <h1 id="score"></h1>
+            
+        </div> -->
+
+    </div>
+
+
+<script>
+    $(document).ready(function() {
+    
+        //Variables
+        var rambutanCounter = 1.5;
+        var kiwiCounter = 1.4;
+        var plumCounter = 1.2;
+
+        $("#rambutan-quantity").append(rambutanCounter);
+        console.log("Rambutan start: " + rambutanCounter);
+        $("#kiwi-quantity").append(kiwiCounter);
+        console.log("Kiwi start: " + rambutanCounter);
+        $("#plum-quantity").append(plumCounter);
+        console.log("Plum start: " + plumCounter);
+
+        
+        
+
+        $("#rambutan").on("click", function() {
+            rambutanCounter -= 0.512;
+            alert("you drank a shot!");
+            $("#rambutan-quantity").text(rambutanCounter);
+            console.log("rambutan quantity: " + rambutanCounter);
+            
+                if (rambutanCounter <= 0) {
+                alert("All finished!  On the the Freeway Challenge!");
+                return $("#rambutan-quantity").text(0);
+                };
+            
+        });
+
+        $("#kiwi").on("click", function() {
+            kiwiCounter -= 0.012;
+            alert("you drank a shot!");
+            $("#kiwi-quantity").text(kiwiCounter);
+            console.log("kiwi quantity: " + kiwiCounter);
+
+                if (kiwiCounter <= 0) {
+                alert("Go home! You're Drunk!");
+                return $("#kiwi-quantity").text(0);
+                };
+
+        });
+
+        $("#plum").on("click", function() {
+            plumCounter -= 0.012;
+            alert("you drank a shot!");
+            $("#plum-quantity").text(plumCounter);
+            console.log("plum quantity: " + plumCounter);
+
+                if (plumCounter <= 0) {
+                alert("$10 says you can't walk a straight line.");
+                return $("#plum-quantity").text(0);
+                };
+        });
+        
+
+    });
+
+
+</script>
+
+</body>
+</html>
