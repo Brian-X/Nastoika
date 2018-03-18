@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nastoika!</title>
+    <title>Настойка!</title>
 
     <!-- Added link to the jQuery Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -42,15 +42,6 @@
             color: white;
             text-align: center;
         }
-            
-    	.wins-losses {
-    		float: left;
-    		width: 160px;
-    		height: 200px;
-    		background: #a48fc8;
-    		color: #000;
-    		padding: 0 20px;
-    	}
 
         .nastoika-amounts {
             display: inline-block;
@@ -68,42 +59,13 @@
             margin-top: 0px;
         }
 
-    	.crystals {
-    		float: left;
-    		width: 860px;
-    		height: 200px;
-    		padding: 0;
-    		margin: 0;
-    	}
-
-        #rambutan {
-            width: 150px;
-            height: 75px;
-            background-color: rgba( 255, 255, 255, 0.2 );
-        }
-
-        #kiwi {
-            width: 150px;
-            height: 75px;
-            background-color: rgba( 255, 255, 255, 0.2 );
-        }
-
-        #plum {
+        #rambutan, #kiwi, #plum {
             width: 150px;
             height: 75px;
             background-color: rgba( 255, 255, 255, 0.2 );
         }
 
 
-
-    	/*.score {
-    		float: left;
-    		width: 560px;
-    		height: 200px;
-    		background: #be081f;
-    		color: #000;
-    		padding: 0 20px;
-    	}*/
 
     </style>
 
@@ -114,7 +76,7 @@
 
     <div class="game">
 
-        <H1>Nastoika!</H1>
+        <H1>Настойка! Nastoika!</H1>
 
         <div class="nastoika-image-box">
             <ul>
@@ -124,18 +86,6 @@
             </ul>
                 
         </div>
-
-        <!-- <div class="wins-losses">
-            <h2 id="win"></h2>
-            <h2 id="loss"></h2>
-        </div> -->
-
-        <!-- <div class="crystals" style="float: left; padding: 0; margin: 0;">
-            <img id="crystal1" class="crystal1" src="assets/img/mind.jpg" alt="crystal-1" height="200" width="200">
-            <img id="crystal2" class="crystal2" src="assets/img/purple.jpg" alt="crystal-2" height="200" width="200">
-            <img id="crystal3" class="crystal3" src="assets/img/red.jpg" alt="crystal-3" height="200" width="200">
-            <img id="crystal4" class="crystal4" src="assets/img/skull.jpg" alt="crystal-4" height="200" width="200">
-        </div> -->
 
         <H2 style="float:left">Click a button to take a shot and see how much is left!</H2>
 
@@ -147,11 +97,6 @@
             </ul>
                 
         </div>
-
-        <!-- <div class="score">
-            <h1 id="score"></h1>
-            
-        </div> -->
 
     </div>
 
@@ -171,13 +116,11 @@
         $("#plum-quantity").append(plumCounter);
         console.log("Plum start: " + plumCounter);
 
-        
-        
-
+        // one shot is 0.012 liters.  .212 is for game speed
         $("#rambutan").on("click", function() {
-            rambutanCounter -= 0.512;
+            rambutanCounter -= 0.212;
             alert("you drank a shot!");
-            $("#rambutan-quantity").text(rambutanCounter);
+            $("#rambutan-quantity").text(rambutanCounter.toFixed(2));
             console.log("rambutan quantity: " + rambutanCounter);
             
                 if (rambutanCounter <= 0) {
@@ -188,9 +131,9 @@
         });
 
         $("#kiwi").on("click", function() {
-            kiwiCounter -= 0.012;
+            kiwiCounter -= 0.212;
             alert("you drank a shot!");
-            $("#kiwi-quantity").text(kiwiCounter);
+            $("#kiwi-quantity").text(kiwiCounter.toFixed(2));
             console.log("kiwi quantity: " + kiwiCounter);
 
                 if (kiwiCounter <= 0) {
@@ -201,9 +144,9 @@
         });
 
         $("#plum").on("click", function() {
-            plumCounter -= 0.012;
+            plumCounter -= 0.212;
             alert("you drank a shot!");
-            $("#plum-quantity").text(plumCounter);
+            $("#plum-quantity").text(plumCounter.toFixed(2));
             console.log("plum quantity: " + plumCounter);
 
                 if (plumCounter <= 0) {
