@@ -109,23 +109,23 @@
         var kiwiCounter = 1.4;
         var plumCounter = 1.2;
 
-        $("#rambutan-quantity").append(rambutanCounter);
+        $("#rambutan-quantity").append(rambutanCounter + " liters");
         console.log("Rambutan start: " + rambutanCounter);
-        $("#kiwi-quantity").append(kiwiCounter);
+        $("#kiwi-quantity").append(kiwiCounter + " liters");
         console.log("Kiwi start: " + rambutanCounter);
-        $("#plum-quantity").append(plumCounter);
+        $("#plum-quantity").append(plumCounter + " liters");
         console.log("Plum start: " + plumCounter);
 
         // one shot is 0.012 liters.  .212 is for game speed
         $("#rambutan").on("click", function() {
             rambutanCounter -= 0.212;
             alert("you drank a shot!");
-            $("#rambutan-quantity").text(rambutanCounter.toFixed(2));
+            $("#rambutan-quantity").text(rambutanCounter.toFixed(2) + " liters");
             console.log("rambutan quantity: " + rambutanCounter);
             
                 if (rambutanCounter <= 0) {
                 alert("All finished!  On to the Freeway Challenge!");
-                return $("#rambutan-quantity").text(0);
+                return $("#rambutan-quantity").text(0 + " liters");
                 };
             
         });
@@ -133,12 +133,12 @@
         $("#kiwi").on("click", function() {
             kiwiCounter -= 0.212;
             alert("you drank a shot!");
-            $("#kiwi-quantity").text(kiwiCounter.toFixed(2));
+            $("#kiwi-quantity").text(kiwiCounter.toFixed(2) + " liters");
             console.log("kiwi quantity: " + kiwiCounter);
 
                 if (kiwiCounter <= 0) {
                 alert("Go home! You're Drunk!");
-                return $("#kiwi-quantity").text(0);
+                return $("#kiwi-quantity").text(0 + " liters");
                 };
 
         });
@@ -146,12 +146,12 @@
         $("#plum").on("click", function() {
             plumCounter -= 0.212;
             alert("you drank a shot!");
-            $("#plum-quantity").text(plumCounter.toFixed(2));
+            $("#plum-quantity").text(plumCounter.toFixed(2) + " liters");
             console.log("plum quantity: " + plumCounter);
 
                 if (plumCounter <= 0) {
                 alert("$10 says you can't walk a straight line.");
-                return $("#plum-quantity").text(0);
+                return $("#plum-quantity").text(0 + " liters");
                 };
         });
         
